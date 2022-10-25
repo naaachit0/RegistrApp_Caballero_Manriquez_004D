@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+        <ion-menu-button color="primary" menu="menuPrincipal"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+  <ion-card>
+    <img src="assets/img/vivoduoc.jpg"/>
+  </ion-card>
+
+  
+  <ion-button expand="full" [routerLink]="['/inicio-docente']" color="primary">Registro Docente</ion-button>
+  <ion-button expand="full" [routerLink]="['/inicio-alumno']" color="warning">Registro Alumno</ion-button>
+  <ion-button expand="full" [routerLink]="['/docente']" color="primary">Inicio Sesión Docente</ion-button>
+  <ion-button expand="full" [routerLink]="['/alumno']" color="warning">Inicio Sesion Alumno</ion-button>
+
+</ion-content>
+
+

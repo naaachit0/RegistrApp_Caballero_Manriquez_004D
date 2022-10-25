@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenuDocente()">
+        <ion-icon slot="start" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<form #formulario="ngForm" (ngSubmit)="addDatosDocente()">
+  
+  <ion-item>
+    <ion-label position="fixed">Nombre docente: </ion-label>
+    <ion-input type="text" placeholder="Nombre: " name="nomDocente" [(ngModel)]="newDato.nomDocente" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Apellido Docente: </ion-label>
+    <ion-input type="text" placeholder="Apellido Docente: " name="apDocente" [(ngModel)]="newDato.apDocente" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Correo Docente: </ion-label>
+    <ion-input type="text" placeholder="Correo: " name="correoDocente" [(ngModel)]="newDato.correoDocente" required></ion-input>
+  </ion-item>
+ 
+  <ion-button [disabled] ="formulario.invalid" type="submit"
+         expand="full" fill="outline" shape="round">
+    Agregar Docente
+  </ion-button>
+</form>
+
+  <ion-list #myList>
+    <ion-list-header>
+      <ion-label>Mis Datos</ion-label>
+    </ion-list-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let dato of datos">
+        <ion-item>
+          <ion-label text-wrap> 
+            <h3>{{dato.nomDocente}}</h3>
+            <ion-text color="secondary">
+              <p>{{dato.apDocente}}</p>
+            </ion-text>
+            <p>{{dato.modified | date: 'short'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="secondary" (click)="updateDatosDocente(dato)">Actualizar</ion-item-option>
+         <ion-item-option color="danger" (click)="deleteDatosDocente(dato)">Eliminar</ion-item-option> 
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-list>
+
+
+
+
+</ion-content>
