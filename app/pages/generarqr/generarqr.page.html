@@ -5,7 +5,32 @@
 </ion-header>
 
 <ion-content>
-<p>GENERAR QR</p>
+<ion-card class="ion-text-center">
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="fixed">Nombre: </ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
+      
+      <ion-label position="fixed">Fecha: </ion-label>
+      <ion-input type="date" required></ion-input>
+    </ion-item>
+
+    <ion-button (click)="generaScan()" expand="block" fill="outline" shape="round"
+          class="ion-margin">
+    Generate QR Code
+    </ion-button>
+
+    <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </ion-card-content>
+</ion-card>
+
+<ion-button (click)="verScan()" expand="block" fill="outline" shape="round">
+  View Code QR
+</ion-button>
+
+<ion-item>
+  <ion-label class="ion-text-wrap">Scan Result: {{scannedResult}}</ion-label>
+</ion-item>
 
 <ion-button expand="full" [routerLink]="['/home']" color="danger">Cerrar Sesión</ion-button>
 </ion-content>
