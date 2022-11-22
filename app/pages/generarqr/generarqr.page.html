@@ -8,7 +8,7 @@
 <ion-card class="ion-text-center">
   <ion-card-content>
     <ion-item>
-      <ion-label position="fixed">Nombre: </ion-label>
+      <ion-label position="fixed">Seccion: </ion-label>
       <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
       
       <ion-label position="fixed">Fecha: </ion-label>
@@ -20,7 +20,7 @@
     Generate QR Code
     </ion-button>
 
-    <qrcode [qrdata]="qrCodeString" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    <qrcode [qrdata]="usuario.nom" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
   </ion-card-content>
 </ion-card>
 
@@ -29,7 +29,7 @@
 </ion-button>
 
 <ion-item>
-  <ion-label class="ion-text-wrap">Scan Result: {{scannedResult}}</ion-label>
+  <ion-label class="ion-text-wrap">Scan Result: {{usuario.nom}}</ion-label>
 </ion-item>
 
 <ion-button expand="full" [routerLink]="['/home']" color="danger">Cerrar Sesión</ion-button>
