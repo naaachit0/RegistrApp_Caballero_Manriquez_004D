@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerarqrPage implements OnInit {
 
-  qrCodeString = 'Hola Mundo';
+  qrCodeString = '';
   scannedResult:any;
 
   constructor() { }
@@ -16,8 +16,14 @@ export class GenerarqrPage implements OnInit {
     nom:'',
   }
 
+  fecha={
+    date:'',
+  }
+
+
+
   generateScan(){
-    this.qrCodeString = this.usuario.nom;
+    this.qrCodeString = this.usuario.nom + ' ' + this.fecha.date;
 
   }
 

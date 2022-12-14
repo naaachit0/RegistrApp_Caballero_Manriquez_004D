@@ -12,7 +12,7 @@
       <ion-input type="text" [(ngModel)]="usuario.nom" required></ion-input>
       
       <ion-label position="fixed">Fecha: </ion-label>
-      <ion-input type="date" required></ion-input>
+      <ion-input type="date" [(ngModel)]="fecha.date" required></ion-input>
     </ion-item>
 
     <ion-button (click)="generaScan()" expand="block" fill="outline" shape="round"
@@ -20,7 +20,7 @@
     Generate QR Code
     </ion-button>
 
-    <qrcode [qrdata]="usuario.nom" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+    <qrcode [qrdata]="usuario.nom + ' ' + fecha.date" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
   </ion-card-content>
 </ion-card>
 
@@ -29,7 +29,7 @@
 </ion-button>
 
 <ion-item>
-  <ion-label class="ion-text-wrap">Scan Result: {{usuario.nom}}</ion-label>
+  <ion-label class="ion-text-wrap">Scan Result: {{usuario.nom + ' ' + fecha.date}}</ion-label>
 </ion-item>
 
 <ion-button expand="full" [routerLink]="['/home']" color="danger">Cerrar Sesión</ion-button>

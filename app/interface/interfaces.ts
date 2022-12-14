@@ -1,6 +1,6 @@
 export interface RespuestaTopHeadlines {
     status: string;
-    data: string
+    data: string;
   }
   
   export interface Feriados {
